@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>functions</artifactId>
+    <artifactId>payment-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>functions</name>
+    <name>payment-service</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -68,8 +68,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <finalName>scalableLambda</finalName>
-                    <outputDirectory>../images</outputDirectory>
+                    <finalName>payment-service</finalName>
+                    <outputDirectory>../../images</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

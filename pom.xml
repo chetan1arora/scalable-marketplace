@@ -9,7 +9,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>functions</module>
+        <module>functions/order-service</module>
+        <module>functions/payment-service</module>
+        <module>functions/inventory-service</module>
         <module>infra</module>
     </modules>
 

@@ -17,7 +17,7 @@ import org.example.models.Order;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ScalableLambda implements RequestHandler<APIGatewayProxyRequestEvent,APIGatewayProxyResponseEvent>
+public class PaymentService implements RequestHandler<APIGatewayProxyRequestEvent,APIGatewayProxyResponseEvent>
 {
 
     final DynamoDB dynamoDB = new DynamoDB(AmazonDynamoDBClientBuilder.defaultClient());
