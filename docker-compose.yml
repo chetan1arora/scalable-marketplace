@@ -1,0 +1,13 @@
+version: '2'
+services:
+  inventory-db:
+    image: postgres:13.6
+    container_name: inventory-database
+    environment:
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=chetan97
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./functions/inventory-service/migration.sql:/docker-entrypoint-initdb.d/init.sql
+

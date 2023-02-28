@@ -3,13 +3,12 @@ package org.example.models;
 
 import lombok.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Product {
-    private String id;
-    private String name;
+public class InventoryRequest {
+    private int id;
     private String type;
+    private int quantity;
 }
