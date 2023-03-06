@@ -1,11 +1,14 @@
 package com.example.service;
 
+import com.amazonaws.services.elasticache.AmazonElastiCache;
+import com.amazonaws.services.elasticache.AmazonElastiCacheAsync;
 import software.amazon.awscdk.*;
 import software.amazon.awscdk.services.apigateway.LambdaIntegration;
 import software.amazon.awscdk.services.apigateway.RestApi;
 import software.amazon.awscdk.services.dynamodb.Attribute;
 import software.amazon.awscdk.services.dynamodb.AttributeType;
 import software.amazon.awscdk.services.ec2.*;
+import software.amazon.awscdk.services.elasticache.CfnCacheCluster;
 import software.amazon.awscdk.services.events.targets.SqsQueue;
 import software.amazon.awscdk.services.lambda.Code;
 import software.amazon.awscdk.services.lambda.Function;
@@ -74,6 +77,14 @@ public class InfraStack extends Stack {
         customEnvVariables.put("SCALABLE_MARKETPLACE_POSTGRES_HOST",jdbcUrl);
         customEnvVariables.put("SCALABLE_MARKETPLACE_POSTGRES_USERNAME","postgres");
         customEnvVariables.put("SCALABLE_MARKETPLACE_POSTGRES_PASSWORD","chetan97");
+
+        CfnCacheCluster cacheCluster = CfnCacheCluster.Builder.create(this, "ScalableMarketplaceRestGateway")
+                .engine("redis")
+                .numCacheNodes(1)
+                .cacheNodeType("cache.t3.micro")
+                .build();
+
+        customEnvVariables.put("SCALABLE_MARKETPLACE_CACHE_ADDRESS", cacheCluster.getAttrRedisEndpointAddress());
 
         final Function inventoryHandler = Function.Builder.create(this, "ScalableMarketplaceInventoryService")
                 .runtime(Runtime.JAVA_11)

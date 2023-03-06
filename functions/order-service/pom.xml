@@ -39,6 +39,11 @@
             <version>1.12.396</version>
         </dependency>
         <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-elasticache</artifactId>
+            <version>1.12.411</version>
+        </dependency>
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.13.4.1</version>
@@ -48,6 +53,21 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jdbi</groupId>
+            <artifactId>jdbi</artifactId>
+            <version>2.78</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jdbi</groupId>
+            <artifactId>jdbi3-sqlobject</artifactId>
+            <version>3.37.1</version>
         </dependency>
     </dependencies>
     <build>

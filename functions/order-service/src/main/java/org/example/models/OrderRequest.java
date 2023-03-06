@@ -3,13 +3,16 @@ package org.example.models;
 
 import lombok.*;
 
+import java.util.Map;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Product {
+public class OrderRequest {
     private String id;
-    private String name;
-    private String type;
+    private Cart cart;
+    private User user;
+
 }
